@@ -45,6 +45,7 @@ def game():
     
     
     total = 9
+    flag = False
     while True:
     
         print("Player 1's turn!")
@@ -59,15 +60,40 @@ def game():
         elif total != 0:
              if (test_table[1] == 'X' and test_table[2] == "X" and test_table[3] == "X") or (test_table[4] == 'X' and test_table[5] == "X" and test_table[6] == "X") or (test_table[7] == "X" and test_table[8] == "X" and test_table[9] == "X"):
                 flag = True
+                print("X is Winner!")
                 break
              
              elif (test_table[1] == 'O' and test_table[2] == "O" and test_table[3] == "O") or (test_table[4] == 'O' and test_table[5] == "O" and test_table[6] == "O") or (test_table[7] == "O" and test_table[8] == "O" and test_table[9] == "O"):
                 flag = True
+                print("O is Winner!")
                 break
-            
+              
+             elif (test_table[1] == "X" and test_table[4] == "X" and test_table[7] == "X") or (test_table[2] == "X" and test_table[5] == "X" and test_table[8] == "X") or (test_table[3] == "X" and test_table[6] == "X" and test_table[9] == "X"):
+                  flag = True
+                  print("X is Winner!")
+                  break
+
+             elif (test_table[1] == "O" and test_table[4] == "O" and test_table[7] == "O") or (test_table[2] == "O" and test_table[5] == "O" and test_table[8] == "O") or (test_table[3] == "O" and test_table[6] == "O" and test_table[9] == "O"):
+                  flag = True
+                  print("O is Winner!")
+                  break
+              
+             elif (test_table[1] == "X" and test_table[5] == "X" and test_table[9] == "X") or (test_table[3] == "X" and test_table[5] == "X" and test_table[7] == "X"):
+                  flag = True
+                  print("X is Winner!")
+                  break
+              
+             elif (test_table[1] == "O" and test_table[5] == "O" and test_table[9] == "O") or (test_table[3] == "O" and test_table[5] == "O" and test_table[7] == "O"):
+                  flag = True
+                  print("")
+                  print("O is Winner!")
+                  break
+              
+             elif total == 0 and flag == False:
+                  print("TIE!")
+
              else:
                  pass
-            
         
         print("Player 2's turn!")
         p2turn = int(input("Enter the position on which you want to put your marker in: "))
@@ -109,9 +135,12 @@ def game():
                   print("")
                   print("O is Winner!")
                   break
-            
+              
+              elif total == 0 and flag == False:
+                  print("TIE!")
+
               else:
                  pass
-              
+      
 display_table(test_table)         
 game()
